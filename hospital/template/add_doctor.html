@@ -1,0 +1,50 @@
+{% extends 'base.html' %}
+
+{% block style %}
+    <style>
+        .dt-buttons{display:inline-flex;margin-bottom:10px;flot:left}
+        .dataTables_filter{display:inline-flex;margin-bottom:10px;float:right} 
+    </style>
+{% endblock  %}
+
+{% block body %}
+     {% ifequal error "no"  %}
+        <script>
+            alert('Record Saved Successfully');
+            window.location=({% url 'view_doctor' %})
+        </script>
+    
+    {% endifequal %}
+    {% ifequal error "yes"  %}
+        <script>
+            alert('Invalide Login Credentials , Try Again');
+        </script>
+    
+    {% endifequal %}
+   <div class="container pt-0 pt-md-5">
+        <div class="row row-cols-12 row-cols-lg-2">
+            <div class="col mx-auto">
+                <div class="p-5 shadow rounded-lg bg-light">
+                    <h3 class="pb-3 text-center"> Add Doctor</h3>
+                    <form action="" method="POST"> {% csrf_token %}
+                        <div class="mb-3">
+                            <label for="name" class="form-label">Name</label>
+                            <input type="text" class="form-control" name='name' id="name" placeholder="Enter your name" required>
+                        </div>
+                        <div class="mb-4">
+                            <label for="mobile" class="form-label">Mobile No.</label>
+                            <input type="tel" class="form-control" name="mobile" id="mobile" placeholder="Ener your mobile no" required>
+                        </div>
+                        <div class="mb-4">
+                            <label for="spacial" class="form-label">Specialization</label>
+                            <input type="text" class="form-control" name="spacial" id="spacial" placeholder="Ener your Specialization" required>
+                        </div>
+                        <div class="text-center">
+                            <button class="btn btn-outline-success px-5" type="submit" >Add Now</button>
+                        </div>
+                    </form>
+                </div>   
+            </div>
+        </div>
+   </div>
+{% endblock %}

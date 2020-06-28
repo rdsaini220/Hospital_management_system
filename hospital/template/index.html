@@ -1,0 +1,72 @@
+{% extends 'base.html' %}
+
+{% block body %}
+   <div class="container">
+        <div class="row row-cols-1 row-cols-lg-1 g-4">
+            <div class="col">
+                <div class="p-3 shadow bg-light">                
+                    <h1 class="text-center">Hospital Management System</h1>
+                    <div class="col mt-4 border-bottom">
+                        <h4>Featurs</h4>
+                    </div>
+                    <div class="row row-cols-2 row-cols-lg-3 pt-3">
+                        <div class="col">
+                            <h5>Doctor</h5>
+                            <ol>
+                                <li>Add Doctor</li>
+                                <li>View Doctor</li>
+                                <li>Doctor Remove List</li>
+                            </ol>
+                        </div>
+                        <div class="col">
+                            <h5>Patient</h5>
+                            <ol>
+                                <li>Add Patient</li>
+                                <li>View Patient</li>
+                                <li>Patient Remove List</li>
+                            </ol>
+                        </div>
+                        <div class="col">
+                           <h5>Appointment</h5>
+                            <ol>
+                                <li>Add Appointment</li>
+                                <li>View Appointment</li>
+                                <li>Appointment Remove List</li>
+                            </ol>
+                        </div>
+                    </div>
+                    <div class="col mt-4 border-bottom">
+                        <h4>Techonology</h4>
+                    </div>
+                    <div class="row row-cols-2 row-cols-lg-3 pt-3">
+                        <div class="col">
+                            <h5>Front-End</h5>
+                            <ol>
+                                <li>Html-5</li>
+                                <li>CSS-3</li>
+                                <li>Javascript</li>
+                                <li>Bootstrap-5</li>
+                            </ol>
+                        </div>
+                        <div class="col">
+                            <h5>Development</h5>
+                            <ol>
+                                <li>Python</li>
+                                <li>Django</li>
+                            </ol>
+                        </div>
+                        <div class="col">
+                            <h5>Database</h5>
+                            <ol>
+                                <li>MySql</li>
+                            </ol>
+                        </div>
+                    </div>
+                    <div class="col border-top mt-4 pt-2 text-center">
+                        <p>Check your Featurs Login Admin <a href="/admin_login/">Login</a></p>
+                    </div>
+                </div>
+            </div>            
+        </div>
+   </div>
+{% endblock %}

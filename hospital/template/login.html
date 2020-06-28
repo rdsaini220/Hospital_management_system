@@ -1,0 +1,44 @@
+{% extends 'base.html' %}
+
+{% block body %}
+
+    {% ifequal error "no"  %}
+        <script>
+            // alert('loggend In Successfully');
+            window.location=({% url 'dashbord' %})
+        </script>
+    
+    {% endifequal %}
+    {% ifequal error "yes"  %}
+        <script>
+            alert('Invalide Login Credentials , Try Again');
+        </script>
+    
+    {% endifequal %}
+
+   <div class="container">
+        <div class="row row-cols-12 row-cols-lg-2">
+            <div class="col mx-auto">
+                <div class="p-5 shadow rounded-lg bg-light">
+                    <h3 class="pb-3 text-center"> Admin Login</h3>
+                    <form action="" method="POST"> {% csrf_token %}
+                        <div class="mb-3">
+                            <label for="uname" class="form-label">User Name</label>
+                            <input type="text" class="form-control" name='uname' id="uname" placeholder="username">
+                        </div>
+                        <div class="mb-4">
+                            <label for="pass" class="form-label">Password</label>
+                            <input type="password" class="form-control" name="pass" id="pass" placeholder="password">
+                        </div>
+                        <div class="text-center">
+                            <button class="btn btn-outline-success px-5" type="submit" >Login</button>
+                        </div>                        
+                    </form>
+                    <div class="mt-4">
+                        <p><b>UserName</b>:- admin <br><b>Password</b>:- admin123</p>
+                    </div>
+                </div>                
+            </div>
+        </div>
+   </div>
+{% endblock %}

@@ -1,0 +1,46 @@
+{% extends 'base.html' %}
+
+
+{% block body %}
+   <div class="container pt-5">
+        <div class="row  w-100">
+            <div class="col-12 col-sm-10 mx-auto">
+                <div class="w-100 p-3 shadow">
+                    <div class="d-flex justify-content-between border-bottom mb-2 ">
+                        <h4 class="d-inline">Appointment List</h4>
+                        <a href="/add_appointment/">Add Appointment</a>
+                    </div>
+                    <table id="view_table" class="display table table-sm table-bordered">
+                        <thead class="table-success">
+                            <tr>
+                            <th scope="col">Id</th>
+                            <th scope="col">Doctor</th>
+                            <th scope="col">Patient</th>
+                            <th scope="col">Date</th>
+                            <th scope="col">Time</th>
+                            <th scope="col">Remove Data</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                        {% for appoint in appoint %}
+                            <tr>
+                            <th scope="row">{{appoint.id}}</th>
+                            <td>{{appoint.doctor}}</td>
+                            <td>{{appoint.patient}}</td>
+                            <td>{{appoint.date}}</td>
+                            <td>{{appoint.time}}</td>
+                            <td><a class="btn btn-danger btn-sm" href="{% url 'delect_appointment' appoint.id %}" onclick="return confirm('are u really want to delect')" >
+                                <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-trash" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0V6z"/>
+                                <path fill-rule="evenodd" d="M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1v1zM4.118 4L4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4H4.118zM2.5 3V2h11v1h-11z"/>
+                                </svg>
+                            </a></td>
+                            </tr>
+                        {% endfor %}
+                        </tbody>
+                    </table>          
+                </div>
+            </div>
+        </div>
+   </div>
+{% endblock %}

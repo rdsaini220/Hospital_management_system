@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+
+{% block body %}
+   <div class="container pt-5">
+        <div class="row row-cols-1 row-cols-lg-3 g-4">
+            <div class="col mx-auto">
+               <div class="shadow m-2 p-4 text-center">
+                  <h3>All Doctors</h3>
+                  <h1>{{d}}</h1>
+                  <a href="/view_doctor/">View List</a>
+               </div>
+            </div>
+            <div class="col mx-auto">
+               <div class="shadow m-2 p-4 text-center">
+                  <h3>All Patients</h3>
+                  <h1>{{p}}</h1>
+                  <a href="/view_patient/">View List</a>
+               </div>
+            </div>
+            <div class="col mx-auto">
+               <div class="shadow m-2 p-4 text-center">
+                  <h3>All Appointments</h3>
+                  <h1>{{a}}</h1>
+                  <a href="/view_appointment/">View List</a>
+               </div>
+            </div>
+        </div>
+   </div>
+{% endblock %}

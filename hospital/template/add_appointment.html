@@ -1,0 +1,59 @@
+{% extends 'base.html' %}
+
+{% block body %}
+    {% ifequal error "no"  %}
+        <script>
+           // alert('Record Saved Successfully');
+            window.location=({% url 'view_appointment' %})
+        </script>
+    
+    {% endifequal %}
+    {% ifequal error "yes"  %}
+        <script>
+            alert('Invalide Login Credentials , Try Again');
+        </script>
+    
+    {% endifequal %}
+   <div class="container pt-0 pt-md-5">
+        <div class="row row-cols-12 row-cols-lg-2">
+            <div class="col mx-auto">
+                <div class="p-5 shadow rounded-lg bg-light">
+                    <h3 class="pb-3 text-center"> Add Appointment</h3>
+                    <form action="" method="POST"> {% csrf_token %}
+                        <div class="input-group mb-3">
+                            <label class="input-group-text" for="doctor">Doctor</label>
+                            <select class="form-select" name="doctor" id="doctor">
+                                <option selected>Choose Doctor...</option>
+                                {% for i in doc %}
+                                    <option value="{{i.name}}">{{i.id}} {{i.name}}</option>
+                                {% endfor %}
+                            </select>
+                        </div>
+                        <div class="input-group mb-3">
+                            <label class="input-group-text"name="patient" for="patient">Patient</label>
+                            <select class="form-select" name="patient" id="patient">
+                                <option selected>Choose Patient...</option>
+                                {% for i in pat %}
+                                    <option value="{{i.name}}">{{i.id}} {{i.name}}</option>
+                                {% endfor %}
+                            </select>
+                        </div>
+                        <div class="row row-cols-2 row-cols-lg-2">
+                            <div class="col mb-3">
+                                <label for="date" class="form-label">Date</label>
+                                <input type="date" class="form-control" name='date' id="date" required>
+                            </div>
+                            <div class="col mb-4">
+                                <label for="time" class="form-label">Time</label>
+                                <input type="time" class="form-control" name="time" id="time" placeholder="Ener your mobile no" required>
+                            </div>
+                        </div>                        
+                        <div class="text-center">
+                            <button class="btn btn-outline-success px-5" type="submit" >Add Now</button>
+                        </div>
+                    </form>
+                </div>   
+            </div>
+        </div>
+   </div>
+{% endblock %}
